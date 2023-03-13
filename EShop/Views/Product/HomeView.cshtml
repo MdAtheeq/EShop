@@ -1,0 +1,39 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "HomeView";
+}
+
+<h2>HomeView</h2>
+
+<div class="col-md-12" @*style="border: 2px solid black"*@>
+    @for (int i = 0; i < Model.Rows.Count; i++)
+    {
+
+
+        <div class="col-md-3" style="border: 2px solid black">
+
+
+            <div style="text-align: center ">
+                <h3>@Model.Rows[i][1]</h3>
+            </div>
+
+            <div>
+                <center><img src="@Url.Content(@Model.Rows[i][3].ToString())" , width="150" height="100" /></center>
+            </div>
+
+            <div style="font-size:18px;  padding:2px">
+                <b><center>Rs. @Model.Rows[i][2]</center></b>
+
+
+            </div>
+
+            <div style="text-align:right; margin-bottom:10px;  padding:2px">
+                @*<input type="button" name="ViewItem" value="View Item" class="btn btn-primary" itemid="@Model.Rows[i][0]" id="btnViewItem" onclick="location.href=' @Url.Action("Index", "Product"), new {  @id = Model.Rows[i][0] }) '" />*@
+                @*@Html.ActionLink("ViewItem", "ViewItem", "Product", new { @class = "btn btn-primary", @id = "@Model.Rows[i][0]" })*@
+                <center><a href=" @Url.Action("ViewItem", "Product", new { @class ="btn btn-primary", @id = Model.Rows[i][0] }) ">View Item</a></center>
+            </div>
+
+        </div>
+    }
+
+</div>

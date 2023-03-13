@@ -1,0 +1,51 @@
+﻿
+@model EShop.Models.ProductDetails
+@{
+    ViewBag.Title = "ViewItem";
+}
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>Product ID</th>
+        <td>@Model.ProductID</td>
+    </tr>
+    <tr>
+        <th>Product Image</th>
+        <td><img src="@Url.Content(@Model.ProductImage)", alt="Image" , width="300" height="250"/></td>
+    </tr>
+    <tr>
+        <th>Brand</th>
+        <td>@Model.Brand</td>
+    </tr>
+    <tr>
+        <th>Model Name</th>
+        <td>@Model.ModelName</td>
+    </tr>
+    <tr>
+        <th>Price</th>
+        <td>@Model.Price</td>
+    </tr>
+    <tr>
+        <th>Size</th>
+        <td>@Model.Size</td>
+    </tr>
+    <tr>
+        <th>Expected Delivery</th>
+        <td>@Model.ExpectedDelivery</td>
+    </tr>
+    <tr>
+        <th>Cash on Delivery</th>
+        <td>@Model.COD</td>
+    </tr>
+
+
+</table>
+
+<a href=" @Url.Action("AddtoCart", "Product", new { @id = Model.ProductID }) ">Add to Cart</a>
+<br />
+<a href="@Url.Action("ShowReviews", "Product", new { @id = Model.ProductID})">View Reviews</a>
+<br />
+<a href="@Url.Action("Index", "Product")">Back to List</a>
+
+
+

@@ -1,0 +1,62 @@
+﻿@model EShop.Models.ProductDetails
+@{
+    ViewBag.Title = "OrderSummary";
+}
+
+<h2>Order Summary</h2>
+
+<table class="table table-bordered table-striped">
+    @*<tr>
+        <th>Order ID</th>
+        <td>@Model.OrderID</td>
+    </tr>
+    <tr>
+        <th>Product ID</th>
+        <td>@Model.ProductID</td>
+    </tr>*@
+
+    <tr>
+        <th>Brand</th>
+        <td>@Model.Brand</td>
+    </tr>
+    <tr>
+        <th>Price</th>
+        <td>@Model.TotalPrice</td>
+    </tr>
+    <tr>
+        <th>Model Name</th>
+        <td>@Model.ModelName</td>
+    </tr>
+   
+    <tr>
+        <th>Quantity</th>
+        <td>@Model.Quantity</td>
+    </tr>
+
+    <tr>
+        <th>Size</th>
+        <td>@Model.Size</td>
+    </tr>
+    <tr>
+        <th>Customer Name</th>
+        <td>@Model.CustomerName</td>
+    </tr>
+    <tr>
+        <th>Contact Number</th>
+        <td>@Model.ContactNumber</td>
+    </tr>
+    <tr>
+        <th>Payment Method</th>
+        <td>@Model.PaymentMethod</td>
+    </tr>
+    <tr>
+        <th>Shipping Address</th>
+        <td>@Model.ShippingAddress</td>
+    </tr>
+
+
+</table>
+<br />
+<a href=" @Url.Action("Index", "Product", new { @id = Model.ProductID }) ">Continue Shopping</a>
+
+

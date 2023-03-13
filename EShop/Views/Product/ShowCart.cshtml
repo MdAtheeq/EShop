@@ -1,0 +1,35 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "ShowCart";
+}
+
+<h2>Cart</h2>
+<table class="table table-bordered table-striped">
+    <tr>
+        @*@<th>Cart ID</th>*@
+        @*<th>Product ID</th>*@
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Action</th>
+    </tr>
+    @for (int i = 0; i < Model.Rows.Count; i++)
+    {
+        <tr>
+            @*<td>@Model.Rows[i][0]</td>*@
+            <td>@Model.Rows[i][1]</td>
+            <td>@Model.Rows[i][2]</td>
+            <td>@Model.Rows[i][3]</td>
+            @*<td>@Model.Rows[i][4]</td>*@
+            <td>
+                <a href=" @Url.Action("PlaceOrder", "Product", new { @id = Model.Rows[i][4] }) ">Check Out</a><br />
+                <a href="@Url.Action("RemovefromCart", "Product", new {@id = Model.Rows[i][4] })">Remove</a>
+
+            </td>
+        </tr>
+    }
+
+
+</table>
+
+

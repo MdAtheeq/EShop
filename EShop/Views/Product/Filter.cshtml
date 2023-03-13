@@ -1,0 +1,55 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "Filter";
+}
+
+@using (Html.BeginForm("Filter", "Product", FormMethod.Post))
+{
+    <div>
+        <b>Price Filter</b>
+        <select name="rate" id="rate">
+            <option value="">--Please choose an option--</option>
+            <option value="<1000"> < 1000 </option>
+            <option value="<2000"> < 2000 </option>
+            <option value="<5000"> < 5000 </option>
+            <option value=">5000"> >5000 </option>
+            <option value=">10000"> > 10000 </option>
+        </select> <input type="submit" value="Apply Filter" />
+
+    </div><br />
+
+
+}
+
+@if (Model.Rows.Count > 0)
+{
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>ProductID</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Product Image</th>
+            <th>Action</th>
+        </tr>
+        @for (int i = 0; i < Model.Rows.Count; i++)
+        {
+            <tr>
+                <td>@Model.Rows[i][0]</td>
+                <td>@Model.Rows[i][1]</td>
+                <td>@Model.Rows[i][2]</td>
+                <td><img src="@Url.Content(@Model.Rows[i][3].ToString())" , width="150" height="100" /></td>
+                <td>
+                    <a href=" @Url.Action("ViewItem", "Product", new { @id = Model.Rows[i][0] }) ">View Item</a>
+
+                </td>
+            </tr>
+
+        }
+
+
+    </table>
+
+
+}
+
+

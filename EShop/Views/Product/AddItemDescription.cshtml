@@ -1,0 +1,139 @@
+﻿@model EShop.Models.ProductDetails
+@{
+    ViewBag.Title = "AddItemDescription";
+}
+
+<h2>Add Item Description</h2>
+<script src="~/Scripts/Validate.js"></script>
+
+@using (Html.BeginForm("AddItemDescription", "Product", FormMethod.Post))
+{
+    <div class="form-horizontal">
+        <h4>Product Specifications</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @*@Html.HiddenFor(model1 => Model.ProductID)*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.ProductID, new { htmlAttributes = new { @class = "form-control" } })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Brand, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Brand, new { htmlAttributes = new { @class = "form-control" } })
+                <label id="brand"style="color:red; visibility:hidden;">Brand is Required</label>
+                @Html.ValidationMessageFor(model => model.Brand)
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ModelName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.ModelName, new { htmlAttributes = new { @class = "form-control" } })
+                <label id="modelname" style="color:red; visibility:hidden;">Model Name is Required</label>
+                @Html.ValidationMessageFor(model => model.ModelName)
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Size, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Size, new { htmlAttributes = new { @class = "form-control" } })
+                <label id="size" style="color:red; visibility:hidden;">Size is Required</label>
+                @Html.ValidationMessageFor(model => model.Size)
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ExpectedDelivery, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.ExpectedDelivery, new { htmlAttributes = new { @class = "form-control" } })
+                <label id="expecteddelivery" style="color:red; visibility:hidden;">Expected Delivery is Required</label>
+                @Html.ValidationMessageFor(model => model.ExpectedDelivery)
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.COD, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.COD, new { htmlAttributes = new { @class = "form-control" } })
+                <label id="COD" style="color:red; visibility:hidden;">COD is Required</label>
+                @Html.ValidationMessageFor(model => model.COD)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VendorCost, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.VendorCost, new { htmlAttributes = new { @class = "form-control" } })
+                <label id="vendorcost" style="color:red; visibility:hidden;">Vendor Cost is Required</label>
+                @Html.ValidationMessageFor(model => model.VendorCost)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SellingPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.SellingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                <label id="sellingprice" style="color:red; visibility:hidden;">Selling Price is Required</label>
+                @Html.ValidationMessageFor(model => model.SellingPrice)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Seller, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Seller, new { htmlAttributes = new { @class = "form-control" } })
+                <label id="seller" style="color:red; visibility:hidden;">Seller is Required</label>
+                @Html.ValidationMessageFor(model => model.Seller)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImportedFrom, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.ImportedFrom, new { htmlAttributes = new { @class = "form-control" } })
+                <label id="importedfrom" style="color:red; visibility:hidden;">This field is Required</label>
+                @Html.ValidationMessageFor(model => model.ImportedFrom)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.WarehouseLocation, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.WarehouseLocation, new { htmlAttributes = new { @class = "form-control" } })
+                <label id="warehouseloction" style="color:red; visibility:hidden;">This field is Required</label>
+                @Html.ValidationMessageFor(model => model.WarehouseLocation)
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" onclick="return valid();" class="btn btn-default" />
+                <input type="button" value="Create 1" onclick= "valid1()" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+     
+@*</div>*@
+}
